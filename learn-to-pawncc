@@ -1,0 +1,42 @@
+# Learn to `pawncc`
+
+In this (hopefully) short post, I aim to improve not only your knowledge of compiling Pawn code but also your general computer usage!
+
+## Quick Primer on Code
+
+You write *source code*:
+
+```pawn
+main() {
+    print("hello world!");
+}
+```
+And the SA:MP server (or *host application*) understands only one thing: machine code.
+
+In this context, "machine code" refers to Pawn bytecode.
+
+When you *compile* code, you're translating it from *human* to *computer* language.
+
+In the context of SA:MP, your *human* code is `.pwn` or Pawn files, and your *computer* code is `.amx` or Abstract Machine Executor bytecode.
+
+## Separate your Understanding of Interface and Process
+
+This applies mainly to users of Pawno - the feature-rich IDE that everyone loves. But if you're using Sublime or any of the other IDEs out there, you can probably still learn a thing or two! In order to simplify everything, I'll be talking from the perspective of Pawno only.
+
+When you hit F5 in Pawno, you probably thought Pawno is doing the work and creating your `.amx` file from your source code.
+
+Nope.
+
+Pawno (the editor) is simply running an external program called `pawncc` and that's the thing that does the hard work.
+
+[diagram]
+
+In order to better your understanding of this process, I want you to close Pawno, open up a terminal and compile your code this way.
+
+## Compiling Pawn
+
+I'm providing you some example code to speed up the process:
+
+```pawn
+
+```
