@@ -54,3 +54,11 @@ So what happens if a cluster shard goes down?
   - How much state you want to maintain is up to you. You could store *every* important variable in a database.
 
 I'll elaborate on these requirements later in the article, but this outlines most of what we will achieve with this design.
+
+# Scratchpad (stuff not yet organised into the article)
+
+single-front-multi-back will be done via a load-balancer, now how to go about this likely involves writing one from scratch (or at least writing a plugin for an existing load-balancer app) which will route player connections to backend based on instructions received.
+
+so for example, the loadbalancer may receive an instruction to shift connections X, Y and Z from backend A to backend B - the game client will see a "lost connection to server" and "connecting to server" - the IP address is the same as far as the client is concerned, it's just the internal routing changes at the reverse-proxy stage where it routes TCP/UDP requests from the client to different backend servers which may be running on different logical servers in different parts of the world - this is how most modern SPA's like twitter or trello work.
+
+in terms of seeing stuff from multiple servers, this isn't actually something I intend to do however you did give me an idea! I didn't think about different servers being for different areas of the map, so Los Santos could be Server A but as soon as the player crosses a city-limits boundary (a simple streamer plugin area) they could be reconnected to Server B which would be running the Red County area. The player would never see real players across this boundary but you could fake that with actors, and create some extra vehicles/objects from both servers near the boundary. However, another solution for that would be to borrow a great design from World of Warcraft which used a "Z" shaped hallway between instances so when the player is in the central part, they can't see anything on either server so a quick reconnect wouldn't make a difference.
